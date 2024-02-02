@@ -1,0 +1,46 @@
+.minha-conta{
+    margin-top: 1em !important;
+    margin-left: 1em !important;
+}
+
+.ambulocetus {
+  width: 165px !important;
+  margin-left: 1.9em;
+  color:  #EFAC23;
+
+}
+
+.elipsemc{
+  width: 75px;
+  height: 35px;
+}
+
+.minha-info{
+  margin-top: 0em !important;
+  margin-left: 2em !important;
+}
+
+.minha-info1{
+  margin-top: 1em !important;
+  margin-left: 2em !important;
+}
+
+.minha-info2{
+  margin-top: 2em !important;
+  margin-left: 2.5em !important;
+}
+
+.minha-info2:hover{
+  color: #EFAC23;
+}
+
+.icon{
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
+
+.hr-livros{
+  width: 165px !important;
+  margin-left: 1em;
+  color: #EFAC23;;
+}

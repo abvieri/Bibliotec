@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0 ;
+    padding: 0;
+    font-family: 'poppins',sans-serif !important;
+ }
+
+/* Loading */
+
+.loading{
+  top: 0;
+  background-color:rgb(0, 0, 0, 0.5);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* 
+
+EFEITO ONDA 
+
+*/
+
+body {
+  background:radial-gradient(ellipse at center, rgba(255, 255, 179,1) 0%, rgba(255,254,234,1) 35%, #FFFEEA 100%);
+  overflow: hidden;
+  margin: 0;
+}
+
+img[alt="www.000webhost.com"]{
+    display:none;
+}
+
+section.waves { 
+   
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 20vh;
+}
+
+.ocean { 
+  height: 5%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #ede77f;
+}
+
+.wave {
+  background: url('https://cdn.discordapp.com/attachments/628661671329792031/1112622334109569054/ondap7.png') repeat-x; 
+  position: absolute;
+  top: -178px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.46, 0.55, 0.73, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -155px;
+  animation: wave 7s cubic-bezier( 0.16, 0.25, 0.43, 0.33) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
+
+/*
+
+ FIM EFEITO ONDA
+
+*/
+
+section.quadrado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    width: 100%;
+    
+    background: url('')no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+.form-box{
+    position: relative;
+    width: 400px;
+    height: 650px;
+    background: #ffd361;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+h2{
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem !important;
+}
+
+#form-value{
+  display: flex;
+  flex-direction: column;
+}
+
+#home{
+  width: 70%;
+  align-self: center;
+  justify-self: center;
+}
+
+.inputbox{
+    position: relative;
+    margin: 20px 0!important;
+    width: 310px;
+    border-bottom: 2px solid #fff;
+}
+
+.inputbox legend{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .3s;
+}
+
+input:focus ~ legend,
+input:valid ~ legend{
+top: -5px;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: #fff;
+}
+
+.inputbox ion-icon{
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+.forget{
+    margin: -15px 0 15px ;
+    font-size: .9em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forget legend input{
+    margin-right: 3px;  
+}
+
+.forget legend a{
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.forget legend a:hover{
+    text-decoration: underline;
+}
+
+button{
+    width: 100% !important;
+    height: 40px !important; 
+    border-radius: 40px !important;
+    background: #fff !important;
+    border: none !important;
+    outline: none !important;
+    cursor: pointer !important;
+    font-size: 1em !important;
+    font-weight: 600 !important;
+}
+.register{
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register p a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+.register p a:hover{
+    text-decoration: underline;
+}
+/**/
+
+hr{
+  margin-top: 15px !important;
+  height:1px !important;
+  border-width:0 !important;
+  opacity: 0.5 !important;
+  color: #fff !important;
+  background-color: #fff !important;
+}
+
+button:active {
+  opacity: 0.8;
+}
+button[disabled] {
+  opacity: 0.8;
+}
+
+.clear {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+}
+
+.clear:hover{
+  background-color: #fff;
+  color: black;
+}
+
+.solid {
+  background: white;
+  border: none;
+}
+
+.password{
+  background: transparent;
+  border: none;
+  color: white;
+  width: fit-content;
+}
+
+.outline {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  margin-top: 20px;
+}
+
+.error {
+  margin-top: 10px;
+  color: darkred;
+  display: none;
+} 
+
+#imag {
+  width: 20px;
+  height: 20px;
+}
+
+.maxim{
+  height: 20% !important;
+}
+
+.pad {
+  margin-right: 30px !important;
+}

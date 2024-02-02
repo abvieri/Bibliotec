@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='perfil.css'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <title>Bibliotec - Perfil</title>
+  <link rel="shortcut icon" href="../img/logo.png">
+</head>
+
+<body class="cinza" onload="Init()">
+
+  <header>
+    <div class="nav">
+      <div id="logo">
+        <a href="../index.html"><img src="../img/logo.png" alt="Logo Bibliotec"></a>
+      </div>
+
+      <div id="logo_menu">
+        <label for="hack" id="checkbox_hack"><img src="../img/logo.png" alt="Logo Bibliotec"></label>
+        <input type="checkbox" id="hack" />
+      </div>
+
+      <nav class="menu">
+        <ul>
+          <li onclick="aSobre()" id="btnSobre">Sobre</li>
+          <li onclick="abiblioteca()" id="btnBiblioteca">Biblioteca</li>
+          <li class="selected" id="btnPerfil">Perfil</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="perfiladm">
+
+    <div class="container custom-container custom-custom-container branco shadow perfil" id="custom">
+      <div class=" row">
+        <div id="sair-alinhamento">
+          <h4 class="text-left minha-conta"> Minha Conta </h4>
+          <p class="text-left minha-conta" id="sair" onclick="logout()"> Sair </p>
+        </div>
+        <hr class="ambulocetus">
+      </div>
+
+      <div class="row">
+        <div class="col text-center">
+          <a class="elipsemc" id="sua_foto"></a>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 40px;" id="nome-usuario"></div>
+      <div class="row" id="email-usuario"></div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col">
+          <a class="minha-info2" data-bs-toggle="modal" data-bs-target="#Modalimg"><svg class="icon"
+              xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#000000" viewBox="0 0 256 256">
+              <path
+                d="M208,56H180.28L166.65,35.56A8,8,0,0,0,160,32H96a8,8,0,0,0-6.65,3.56L75.71,56H48A24,24,0,0,0,24,80V192a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,6.66-3.56L100.28,48h55.43l13.63,20.44A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z">
+              </path>
+            </svg> Alterar foto</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <a class="minha-info2" data-bs-toggle="modal" data-bs-target="#ModalNome"><svg class="icon"
+              xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#000000" viewBox="0 0 256 256">
+              <path
+                d="M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z">
+              </path>
+            </svg> Alterar nome</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <a class="minha-info2" data-bs-toggle="modal" data-bs-target="#ModalSenha"><svg class="icon"
+              xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#000000" viewBox="0 0 256 256">
+              <path
+                d="M48,56V200a8,8,0,0,1-16,0V56a8,8,0,0,1,16,0Zm84,54.5L112,117V96a8,8,0,0,0-16,0v21L76,110.5a8,8,0,0,0-5,15.22l20,6.49-12.34,17a8,8,0,1,0,12.94,9.4l12.34-17,12.34,17a8,8,0,1,0,12.94-9.4l-12.34-17,20-6.49A8,8,0,0,0,132,110.5ZM238,115.64A8,8,0,0,0,228,110.5L208,117V96a8,8,0,0,0-16,0v21l-20-6.49a8,8,0,0,0-4.95,15.22l20,6.49-12.34,17a8,8,0,1,0,12.94,9.4l12.34-17,12.34,17a8,8,0,1,0,12.94-9.4l-12.34-17,20-6.49A8,8,0,0,0,238,115.64Z">
+              </path>
+            </svg> Alterar senha</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container custom-container custom-custom-container branco shadow" id="janelaadm" style="display: none;">
+      <div class=" row" id="gerenciar">
+        <h4 class="text"> Gerenciar </h4>
+        <hr class="hr_gerenciar">
+      </div>
+
+      <div class="buttons">
+        <button class="btnn mb-3" data-bs-toggle="modal" data-bs-target="#Modaladd">Adicionar Livro</button>
+        <button class="btnn" data-bs-toggle="modal" data-bs-target="#Modaremove" onclick=" ModalGerenciar()">Gerenciar
+          Livros</button>
+        <hr class="gerenciar">
+        <button class="btnn mb-3" data-bs-toggle="modal" data-bs-target="#ModalAlugueis"
+          onclick="ModalAlugueis()">Alugados</button>
+        <button class="btnn" data-bs-toggle="modal" data-bs-target="#Modalalugados"
+          onclick="ModalPedidos()">Pedidos</button>
+
+        <hr class="gerenciar">
+        <button class="btnn" data-bs-toggle="modal" data-bs-target="#Modalremoveav"
+          onclick="comentPost()">Avaliações</button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="top">
+
+    <div class="container livro-container branco">
+      <div class="row">
+        <h4 class="text-left minha-conta">Livros Alugados </h4>
+      </div>
+
+      <hr id="alugados" class="hr_livro">
+      
+      <div class="alinhamento">
+        <ol id="searchalugados" class="book Bibliotecaalugados" style="display: flex;"></ol>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="top">
+
+    <div class="container livro-container branco">
+      <div class="row">
+        <div class="clean">
+          <h4 class="text-left minha-conta">Livros Salvos </h4>
+          <button class="btnn" onclick="cleanfavoritos()">Limpar</button>
+        </div>
+
+        <hr id="favoritos" class="hr_livro">
+
+        <div class="alinhamento">
+          <ol id="searchfavoritos" class="book Bibliotecafavoritos" style="display: flex;"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="top">
+
+    <div class="container livro-container branco">
+      <div class="row">
+        <div class="clean">
+          <h4 class="text-left minha-conta">Histórico de Livros</h4>
+          <button class="btnn" onclick="cleanhistory()">Limpar</button>
+        </div>
+
+        <hr id="historico" class="hr_livro">
+
+        <div class="alinhamento">
+          <ol id="searchhistorico" class="book Bibliotecahistorico" style="display: flex;"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Janelas Modais -->
+
+  <section>
+
+    <!-- Modal Foto -->
+    <div class="modal fade" id="Modalimg" tabindex="-1" aria-labelledby="ModalimgLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="modalimg"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModalimgLabel">Alterar foto</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <label class="form-label" for="customFile">Escolha uma imagem</label>
+            <input type="file" class="form-control" id="imgselected" />
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Nome -->
+
+    <div class="modal fade" id="ModalNome" tabindex="-1" aria-labelledby="ModalNomeLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="modalimg"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModalNomeLabel">Alterar nome</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Novo nome</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" id="Novonome">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail2" class="form-label">Confirmar nome</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" id="Confirmarnome">
+              </div>
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-warning" style="color: #fff;" onclick=" ModalNome()">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Senha -->
+    <div class="modal fade" id="ModalSenha" tabindex="-1" aria-labelledby="ModalSenhaLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="modalimg"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModalSenhaLabel">Alterar Senha</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <p>Ao clicar em "Continuar", você solicitará a redefinição da sua senha. Um email de redefinição de senha
+              será enviado para o endereço de email associado à sua conta. <br><br> Certifique-se de verificar a sua
+              caixa de entrada e pasta de spam para encontrar as instruções de recuperação de senha. Tem certeza de que
+              deseja prosseguir com essa ação?</p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-warning" style="color: #fff;" onclick="ModalSenha()">Continuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Adicionar Livros -->
+    <div class="modal fade" id="Modaladd" tabindex="-1" aria-labelledby="ModaladdLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="Modaladd"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModaladdLabel">Adicionar Livro</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="inputnome" class="form-label">Título</label>
+                <input type="text" class="form-control" id="inputnome">
+                <p class="alerta" id="alerttitulo">Insira o títuo do livro</p>
+              </div>
+
+              <div class="col-md-6">
+                <label for="inputautor" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="inputautor">
+                <p class="alerta" id="alertautor">Insira o autor do livro</p>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputpag" class="form-label">Páginas</label>
+                <input type="number" class="form-control" id="inputpag">
+                <p class="alerta" id="alertpag">Insira a quantidade de páginas do livro</p>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputano" class="form-label">Ano</label>
+                <input type="number" class="form-control" id="inputano">
+                <p class="alerta" id="alertano">Insira o ano do livro</p>
+              </div>
+
+              <div class="col-md-4">
+                <label for="exemplares" class="form-label">Exemplares</label>
+                <input type="number" class="form-control" id="exemplares" placeholder="Apenas livros fisicos">
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputlic" class="form-label">Licença</label>
+                <select id="inputlic" class="form-select">
+                  <option selected>Domínio Público</option>
+                  <option>Privado</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputtipo" class="form-label">Tipo</label>
+                <select id="inputtipo" class="form-select">
+                  <option selected>Livro Digital</option>
+                  <option>Livro Físico</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label for="instituto" class="form-label">Instituto</label>
+                <select id="instituto" class="form-select">
+                  <option selected>Nenhuma</option>
+                  <option>Etec Itaquera</option>
+                </select>
+              </div>
+
+              <div class="col-md-10" id="formadd">
+                <label for="inputgen" class="form-label">Generos</label>
+                <input type="text" class="form-control" id="inputgen">
+                <p class="alerta" id="alertgen">Insira os generos do livro</p>
+              </div>
+
+              <div class="col-2" style="align-self: flex-end;">
+                <div class="btn btn-secondary" id="adicionargen" onclick="adicionargen()"> + </div>
+              </div>
+
+              <div class="mb-12">
+                <label for="formFileimg" class="form-label">Capa do Livro</label>
+                <input class="form-control" type="file" id="formFileimg">
+                <p class="alerta" id="alertimg">Insira a imagem do livro</p>
+              </div>
+
+              <div class="mb-12">
+                <label for="descricao" class="form-label">Descrição</label>
+                <textarea class="form-control" id="descricao" rows="3"></textarea>
+                <p class="alerta" id="alertsin">Insira a sinopse do livro</p>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="btn btn-warning" id="btnadicionar" style="color: #fff;" onclick="add()">Adicionar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gerenciar Livros -->
+    <div class="modal fade" id="Modaremove" tabindex="-1" aria-labelledby="ModaremoveLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="modaremove"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModaremoveLabel">Gerenciar Livros</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row" id="modal-body">
+
+            <div style="display: none;" id="modal-editar" tabindex="-1" aria-labelledby="ModaladdLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                  <div class="modal-body">
+                    <form class="row g-3" id="myform">
+                      <div class="col-md-6">
+                        <label for="editinputnome" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="editinputnome">
+                        <p class="alerta" id="alerttitulo">Insira o títuo do livro</p>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="editinputautor" class="form-label">Autor</label>
+                        <input type="text" class="form-control" id="editinputautor">
+                        <p class="alerta" id="alertautor">Insira o autor do livro</p>
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="editinputpag" class="form-label">Páginas</label>
+                        <input type="number" class="form-control" id="editinputpag">
+                        <p class="alerta" id="alertpag">Insira a quantidade de páginas do livro</p>
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="editinputano" class="form-label">Ano</label>
+                        <input type="number" class="form-control" id="editinputano">
+                        <p class="alerta" id="alertano">Insira o ano do livro</p>
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="editexemplares" class="form-label">Exemplares</label>
+                        <input type="number" class="form-control" id="editexemplares" placeholder="Exemplares fisicos">
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="editinputlic" class="form-label">Licença</label>
+                        <select id="editinputlic" class="form-select">
+                          <option selected>Domínio Público</option>
+                          <option>Privado</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="editinputtipo" class="form-label">Tipo</label>
+                        <select id="editinputtipo" class="form-select">
+                          <option selected>Livro Digital</option>
+                          <option>Livro Físico</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="institutoedit" class="form-label">Instituto</label>
+                        <select id="institutoedit" class="form-select">
+                          <option selected>Nenhuma</option>
+                          <option>Etec Itaquera</option>
+                        </select>
+                      </div>
+
+                      <div class="col-md-10" id="formedit">
+                        <label for="inputgen" class="form-label">Generos</label>
+                        <input type="text" class="form-control" id="inputgener">
+                        <p class="alerta" id="alertgen">Insira os generos do livro</p>
+                      </div>
+
+                      <div class="col-2" style="align-self: flex-end;">
+                        <div class="btn btn-secondary" id="adicionargen" onclick="adicionargen()"> + </div>
+                      </div>
+
+                      <div class="mb-12">
+                        <label for="editformFileimg" class="form-label">Capa do Livro</label>
+                        <input class="form-control" type="file" id="editformFileimg">
+                        <p class="alerta" id="alertimgg">Insira a imagem do livro</p>
+                      </div>
+
+                      <div class="mb-12">
+                        <label for="editdescricao" class="form-label">Descrição</label>
+                        <textarea class="form-control" id="editdescricao" rows="3"></textarea>
+                        <p class="alerta" id="alertsin">Insira a sinopse do livro</p>
+                      </div>
+
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="btn btn-secondary" id="btnadicionar" onclick="editarcancelar()">Cancelar</div>
+                    <div class="btn btn-warning" id="btnadicionar" style="color: #fff;" onclick="addeditar()">Confirmar
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pedidos de Livros -->
+    <div class="modal fade" id="Modalalugados" tabindex="-1" aria-labelledby="ModalalugadosLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="Modalalugados"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModalalugadosLabel">Pedidos Alugueis</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="alugueis"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Livros Alugados -->
+    <div class="modal fade" id="ModalAlugueis" tabindex="-1" aria-labelledby="ModalAlugueisLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="ModalAlugueis"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModalAlugueisLabel">Livros Alugados</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="livros_alugados"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gerenciar Avaliações -->
+    <div class="modal fade" id="Modalremoveav" tabindex="-1" aria-labelledby="ModalremoveavLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <a href="../index.html" class="Modalremoveav"><img src="../img/logo.png" class="modalimg"
+                alt="Logo Bibliotec"></a>
+            <h1 class="modal-title fs-5" id="ModalremoveavLabel">Gerenciar Avaliações</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="comentarios"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!--Rodapé-->
+  <footer class="rodape">
+    <div class="alinhamento_rodape">
+      <div class="div_rodape">
+        <h2>Empresa</h2>
+        <a href="#">Direitos Autorais</a>
+        <a href="#">Políticas de Privacidade</a>
+        <a href="#">Sobre / Contato</a>
+      </div>
+      <div class="div_rodape">
+        <h2>Biblioteca</h2>
+        <a href="#">Generos</a>
+        <a href="#">Autores</a>
+        <a href="#">Livros</a>
+      </div>
+      <div class="div_rodape">
+        <h2>Comunidade</h2>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div class="div_rodape">
+        <img src="../img/logo_branca.png" alt="Logo Bibliotec">
+      </div>
+    </div>
+    <hr>
+    <p>©2023 Bibliotec. Todos os direitos reservados</p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="getid.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+  <script src="../firebase-init.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

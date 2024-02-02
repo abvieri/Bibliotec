@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bibliotec</title>
+    <link rel="shortcut icon" href="img/logo.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="Init()">
+    <!--Menu de Navegação-->
+    <header>
+        <div class="nav">
+            <div id="logo">
+                <a href="index.html"><img src="img/logo.png" alt="Logo Bibliotec"></a>
+            </div>
+
+            <div id="logo_menu">
+                <label for="hack" id="checkbox_hack"><img src="img/logo.png" alt="Logo Bibliotec"></label>
+                <input type="checkbox" id="hack" />
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li onclick="aSobre()" id="btnSobre">Sobre</li>
+                    <li onclick="abiblioteca()" id="btnBiblioteca">Biblioteca</li>
+                    <li onclick="aPerfil()" id="btnPerfil">Entrar</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--Banner-->
+    <section class="banner">
+        <div class="content">
+            <h1>Bibliotec - A Biblioteca Inteligente</h1>
+            <img src="img/estante.png" alt="Bibliotec - A Biblioteca Inteligente">
+        </div>
+        <div class="banner_menu container">
+            <div class="btn_banner btn-menu" onclick="aLogin()"><span id="btnLogin">Entrar</span></div>
+            <div class="btn_banner btn-menu" onclick="abiblioteca()"><span>Biblioteca</span></div>
+            <div class="btn_banner btn-menu"><span>Fale Conosco</span></div>
+        </div>
+    </section>
+
+    <!--Generos-->
+    <section class="container generos">
+        <h2>Principais Gêneros</h2>
+        <hr>
+        <button class="btn" onclick="abiblioteca()">ver mais</button>
+
+        <div id="alinhamento_genero">
+
+            <div class="cards_generos">
+                <div class="card" id="-Ficção">
+                    <span>Ficção</span>
+                </div>
+                <div class="card" id="-Fantasia">
+                    <span>Fantasia</span>
+                </div>
+                <div class="card" id="-Didático">
+                    <span>Didático</span>
+                </div>
+            </div>
+
+            <div class="cards_generos">
+                <div class="card" id="-Religioso">
+                    <span>Religioso</span>
+                </div>
+                <div class="card" id="-Romance">
+                    <span>Romance</span>
+                </div>
+                <div class="card" id="-Literatura*Brasileira">
+                    <span>Literatura Nacional</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Populares-->
+    <section class="carrossel container">
+        <h2>Populares</h2>
+        <hr>
+        <div class="alinhamento">
+            <ol id="Populares" class="book"></ol>
+        </div>
+    </section>
+
+    <!--Didáticos-->
+    <section class="carrossel container">
+        <h2>Didáticos</h2>
+        <hr>
+        <div class="alinhamento">
+            <ol id="Didaticos" class="book"></ol>
+        </div>
+    </section>
+
+    <!--Quebra da Página-->
+    <section class="quebra">
+        <div class="img">
+            <img src="img/arte.png" alt="publicidade">
+        </div>
+        <div id="img">
+            <img src="img/Qrcode.png" alt="publicidade">
+        </div>
+    </section>
+
+    <!--Literatura Brasileira-->
+    <section class="carrossel container id01" id="brasileira">
+        <h2>Literatura Brasileira</h2>
+        <hr>
+        <div class="alinhamento">
+            <ol id="LitBrasileira" class="book"></ol>
+        </div>
+    </section>
+
+    <!--Ficção Ciêntífica-->
+    <section class="carrossel container id02">
+        <h2>Artes</h2>
+        <hr>
+        <div class="alinhamento">
+            <ol id="FicCientífica" class="book"></ol>
+        </div>
+    </section>
+
+    <!--Fantasia-->
+    <section class="carrossel container id03">
+        <h2>Ficção</h2>
+        <hr>
+        <div class="alinhamento">
+            <ol id="Fantasia" class="book"></ol>
+        </div>
+    </section>
+
+    <!--Romance-->
+    <section class="carrossel container" id="fn">
+        <h2>Romance</h2>
+        <hr>
+        <div class="alinhamento">
+            <ol id="Romance" class="book"></ol>
+        </div>
+
+        <button class="btn" id="biblioteca" onclick="abiblioteca()">Biblioteca Completa</button>
+
+    </section>
+
+    <!--Rodapé-->
+    <footer class="rodape">
+        <div class="alinhamento_rodape">
+            <div class="div_rodape">
+                <h2>Empresa</h2>
+                <a href="#">Direitos Autorais</a>
+                <a href="#">Políticas de Privacidade</a>
+                <a href="#">Sobre / Contato</a>
+            </div>
+            <div class="div_rodape">
+                <h2>Biblioteca</h2>
+                <a href="#">Generos</a>
+                <a href="#">Autores</a>
+                <a href="#">Livros</a>
+            </div>
+            <div class="div_rodape">
+                <h2>Comunidade</h2>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="div_rodape">
+                <img src="img/logo_branca.png" alt="Logo Bibliotec">
+            </div>
+        </div>
+        <hr>
+        <p>©2023 Bibliotec. Todos os direitos reservados</p>
+    </footer>
+
+    <script src='main.js'></script>
+    <script src='getid.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="firebase-init.js" type="module"></script>
+</body>
+
+</html>

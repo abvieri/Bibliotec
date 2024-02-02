@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg/.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel='stylesheet' type='text/css' href='login.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <title>Bibliotec - Entrar</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+</head>
+
+<body>
+    <section class="ocean">
+        <section class="wave"></section>
+        <section class="wave"></section>
+    </section>
+
+    </div>
+    <section class="quadrado" class>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="" method="POST" id="form-value">
+                    <h2>Login</h2>
+
+                    <div class="inputbox">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="email" id="email" onchange="onChangeEmail()" name="email">
+                        <legend for="">Email</legend>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id="password" onchange="onChangePassword()" name="senha">
+                        <legend for="">Senha</legend>
+                    </div>
+
+                    <div class="forget">
+                        <button type="button" class="password" id="recover-password-button" disabled="true"
+                            onclick="recoverPassword()">Recuperar senha</button>
+                    </div>
+
+                    <div>
+                        <button type="button" class="solid" id="login-button" onclick="login()">Entrar</button>
+                    </div>
+
+                    <div>
+                        <button type="button" class="outline clear" onclick="register()">Registrar</button>
+                    </div>
+
+                    <div>
+                        <button type="button" class="outline clear" onclick="GoogleLogin()">Entrar com o Google</button>
+                    </div>
+
+                    <hr>
+
+                    <div id="home">
+                        <a href="../index.html"><button type="button" class="outlinebilogo clear">
+                                Bibliotec</button></a>
+                    </div>
+
+                    <div>
+                        <div class="error" id="email-required-error">Email é obrigatório</div>
+                        <div class="error" id="email-invalid-error">Email é inválido</div>
+                        <div class="error" id="password-required-error">Senha é obrigatória</div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="background-color: white;">
+        <div class="container" style="background-color: red;">
+            <div class="row align-items-center justify-content-center image-container marg">
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="login.js"></script>
+    <script src="validations.js"></script>
+    <script src="../loading.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="../firebase-init.js" type="module"></script>
+
+    <script>
+        let provider = new firebase.auth.GoogleAuthProvider()
+        function GoogleLogin() {
+            firebase.auth().signInWithPopup(provider).then(res => {
+                const dados = {
+                    username: res.user.displayName,
+                    userPhoto: res.user.photoURL,
+                    email: res.user.email,
+                    acesso: "comum",
+                    salvos: ["Lista"],
+                    historico: ["Lista"]
+                };
+
+                firebase.auth().onAuthStateChanged((user) => {
+                    firebase.firestore().collection('users').get().then(e => {
+                        const users = e.docs.map(doc => doc.data());
+                        var contagem = 0;
+                        
+                        for (i = 0; i < users.length; i++) {
+                            let contt = users[i];
+                            if (contt.email == res.user.email) {
+                                contagem = contagem + 1;
+                            }
+                        }
+                        
+                        if (contagem == 0) {
+                            firebase.firestore().collection('users').add(dados)
+                                .then(() => { 
+                                    console.log('');
+                                })
+                                .catch(() => {
+                                    alert('Erro');
+                                });
+                        }
+                    })
+                })
+            }
+            )
+        }
+    </script>
+</body>
+
+</html>

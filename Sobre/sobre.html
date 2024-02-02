@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotec - Sobre</title>
+    <link rel="shortcut icon" href="img/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+<body onload="Init()">
+    
+    <!--Cabeçalho da Página-->
+    <header>
+        <div class="nav">
+            <div id="logo">
+                <a href="../index.html"><img src="./img/logo.png" class="logo_branca" alt="Logo Bibliotec"></a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li onclick="aSobre()" id="btnSobre" style="color: #EFAC23;">Sobre</li>
+                    <li onclick="abiblioteca()" id="btnBiblioteca">Biblioteca</li>
+                    <li onclick="aPerfil()" id="btnPerfil">Entrar</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="form-contato" style="display: flex; align-items: center; flex-direction: column;">
+        <div id="entrar__contato">
+
+            <span class="formulario fm">
+                <div class="frase1">
+                    <h1>Entre em contato</h1>
+                    <hr class="h1" color="#efac23">
+                </div>
+
+                <form action="https://formsubmit.co/onblidev@gmail.com" method="POST" class="form">
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" required placeholder="Insira seu nome" />
+                    <label for="email"></label>
+                    <input type="email" name="email" id="email" required placeholder="Insira seu e-mail" />
+                    <label for="message"></label>
+                    <textarea name="message" id="message" required placeholder="Digite sua mensagem"></textarea>
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/obrigado.html">
+                    <button type="submit">Enviar</button>
+                </form>
+            </span>
+
+            <span class="missao1">
+                <p style="text-align: center; font-size: 22px;">Missão: Ser o maior sistema de bibliotecas eletrônicas
+                </p>
+                <hr class="hr1">
+                <div class="redes__sociais">
+                    <img src="./img/Facebook.png" class="rede_social">
+                    <img src="./img/Instagram.png" class="rede_social">
+                    <img src="./img/Twitter.png" class="rede_social">
+                </div>
+            </span>
+        </div>
+        <img src="./img/Faixa.png" id="faixa">
+
+    </section>
+
+
+    <!--Slider-->
+
+    <section id="slider">
+        <input type="radio" name="slider" id="s1" checked>
+        <input type="radio" name="slider" id="s2">
+        <input type="radio" name="slider" id="s3">
+
+        <label for="s1" id="slide1">
+            <div class="quem-somos">
+                <h1>Quem Somos?</h1>
+                <hr>
+                <p>A <b>Bibliotec</b> é um sistema da <i>Onbli Developers</i> que viabiliza a união de uma biblioteca
+                    física com uma digital. De maneira totalmente automatizada, a Bibliotec busca trazer inovação dos
+                    sistemas bibliotecários, sendo a melhor biblioteca eletrônica do mercado. </p>
+            </div>
+        </label>
+
+
+        <label for="s2" id="slide2">
+            <div class="nossa-historia">
+                <h1>Nossa História</h1>
+                <hr>
+                <p>Nós surgimos à partir de um grupo de 5 jovens que se dispuseram a trazer uma resolução à uma área
+                    defasada na vida dos estudantes, a leitura.</p>
+            </div>
+        </label>
+
+
+        <label for="s3" id="slide3">
+            <section class="mvv">
+
+                <div class="missao">
+                    <h1 id="missaoo">Missão</h1>
+                    <p>Nossa missão é ser o maior sistema de biblioteca eletrônica.</p>
+                </div>
+                <div class="visao">
+                    <h1>Visão</h1>
+                    <p>Incentivar a leitura através da tecnologia imersiva e
+                        acessível.</p>
+                </div>
+                <div class="Valores">
+                    <h1 id="valoress">Valores</h1>
+                    <ol id="lista-de-valores">
+                        <li>Resultados excelentes</li>
+                        <li>Agimos em torno de um propósito</li>
+                        <li>Melhoramos 1% todos os dias</li>
+                        <li>Comunidade</li>
+                        <li>Acessibilidade </li>
+                    </ol>
+                </div>
+
+            </section>
+        </label>
+    </section>
+
+
+    <!--Rodape -->
+    <footer class="rodape">
+        <div class="alinhamento_rodape">
+            <div class="div_rodape">
+                <h2>Empresa</h2>
+                <a href="">Direitos Autorais</a>
+                <a href="">Políticas de Privacidade</a>
+                <a href="">Sobre / Contato</a>
+            </div>
+            <div class="div_rodape">
+                <h2>Biblioteca</h2>
+                <a href="">Generos</a>
+                <a href="">Autores</a>
+                <a href="">Livros</a>
+            </div>
+            <div class="div_rodape">
+                <h2>Comunidade</h2>
+                <a href="">Facebook</a>
+                <a href="https://www.instagram.com/onblidev?igshid=NTc4MTIwNjQ2YQ==" target="_blank">Instagram</a>
+                <a href="">Twitter</a>
+            </div>
+            <div class="div_rodape">
+                <img src="./img/logo_branca.png" alt="Logo Bibliotec">
+            </div>
+        </div>
+        <hr>
+        <p>©2023 Bibliotec. Todos os direitos reservados</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+    <script src="../firebase-init.js" type="module"></script>
+
+    <script>
+
+        function Init() {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    document.getElementById('btnPerfil').innerText = "Perfil";
+                } else {
+                }
+            })
+        }
+
+
+        function aPerfil() {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    window.location.href = "../Perfil/index.html";
+                } else {
+                    window.location.href = "../login/login.html";
+                }
+            })
+        }
+
+        function abiblioteca() {
+            window.location.href = "../biblioteca/biblio.html";
+        }
+
+    </script>
+</body>
+
+</html>
