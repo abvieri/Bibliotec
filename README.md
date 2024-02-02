@@ -20,4 +20,4 @@ Desenvolvida inicialmente pela equipe Onbli Developers, a Bibliotec visava traze
 
 A Bibliotec idealizada pelo grupo resultou em sua primeira versão. No entanto, o projeto foi descontinuado. Assumi a iniciativa, reformulando completamente o site, desde o backend até o frontend, para trazer uma nova vida à Bibliotec.
 
-<p>Explore a versão revitalizada da Bibliotec <a href="https://abvieri-bibliotec.netlify.app" target="_blank" rel="noopener noreferrer">aqui</a> e descubra como a inovação automatizada e o compromisso com a leitura se unem para oferecer uma experiência única.</p>
+Explore a versão revitalizada da Bibliotec [aqui](https://abvieri-bibliotec.netlify.app) e descubra como a inovação automatizada e o compromisso com a leitura se unem para oferecer uma experiência única.
