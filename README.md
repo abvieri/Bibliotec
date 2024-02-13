@@ -18,6 +18,4 @@ O **Bibliotec** é uma solução inovadora que integra bibliotecas físicas e di
 
 Desenvolvida inicialmente pela equipe Onbli Developers, a Bibliotec visava trazer inovação aos sistemas bibliotecários. Totalmente automatizada, buscava ser a melhor biblioteca eletrônica do mercado, proporcionando praticidade e eficiência.
 
-A Bibliotec idealizada pelo grupo resultou em sua primeira versão. No entanto, o projeto foi descontinuado. Assumi a iniciativa, reformulando completamente o site, desde o backend até o frontend, para trazer uma nova vida à Bibliotec.
-
-Explore a versão revitalizada da Bibliotec [aqui](https://ab-bibliotec.netlify.app) e descubra como a inovação automatizada e o compromisso com a leitura se unem para oferecer uma experiência única.
+Explore a Bibliotec [aqui](https://bibliotecbeta.netlify.app) e descubra como a inovação automatizada e o compromisso com a leitura se unem para oferecer uma experiência única.
